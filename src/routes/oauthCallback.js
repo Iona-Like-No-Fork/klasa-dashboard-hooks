@@ -24,6 +24,7 @@ module.exports = class extends Route {
 			headers: { Authorization: `Basic ${Buffer.from(`${this.client.options.clientID}:${this.client.options.clientSecret}`).toString('base64')}` },
 			method: 'POST'
 		});
+		console.log(await (res.text()))
 		if (!res.ok) return response.end(RESPONSES.FETCHING_TOKEN);
 
 		const { oauthUser } = this;
